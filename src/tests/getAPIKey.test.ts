@@ -29,6 +29,6 @@ describe("API tests", () => {
 		const realheader: IncomingHttpHeaders = {
 			'authorization' : 'ApiKey zippideddoodah'
 			};
-		expect(getAPIKey(realheader)).toBe("zippededdoodah");
+		expect(getAPIKey(realheader)).toBe("zippideddoodah");
 	});
 });
