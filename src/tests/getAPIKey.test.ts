@@ -31,4 +31,22 @@ describe("API tests", () => {
 			};
 		expect(getAPIKey(realheader)).toBe("zippideddoodah");
 	});
+	test("not even Apikey many params",  ()=> {
+		const realheader: IncomingHttpHeaders = {
+			'authorization' : 'ApiKei zippideddoodah '
+			};
+		expect(getAPIKey(realheader)).toBe(null);
+	});
+	test("not enough params",  ()=> {
+		const realheader: IncomingHttpHeaders = {
+			'authorization' : 'ApiKey'
+			};
+		expect(getAPIKey(realheader)).toBe(null);
+	});
+	test("not even auth params",  ()=> {
+		const realheader: IncomingHttpHeaders = {
+			'x-code' : 'ApiKey nothingtoseheere'
+			};
+		expect(getAPIKey(realheader)).toBe(null);
+	});
 });
